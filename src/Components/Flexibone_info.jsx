@@ -10,11 +10,10 @@ import {
 } from "react-icons/gi";
 import Nav from "./Nav";
 import Service_info from "./Services_info";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 function Flexibone_info() {
-
-  const servicesDataGroup1 = [
+  const servicesData = [
     {
       title: "Knee Arthroscopy",
       description: "Minimally invasive knee joint treatment.",
@@ -24,7 +23,7 @@ function Flexibone_info() {
     {
       title: "Shoulder Arthroscopy",
       description: "Keyhole surgery for shoulder issues.",
-      icon: <GiShoulderArmor className="siconb" />,
+      icon: <GiShoulderArmor className="sicon" />,
       isBlue: true,
     },
     {
@@ -36,12 +35,9 @@ function Flexibone_info() {
     {
       title: "Total Knee Replacement",
       description: "Surgical knee joint replacement.",
-      icon: <GiKneeCap className="siconb" />,
+      icon: <GiKneeCap className="sicon" />,
       isBlue: true,
     },
-  ];
-
-  const servicesDataGroup2 = [
     {
       title: "Complex Trauma Surgery",
       description: "Advanced treatment for severe injuries.",
@@ -51,7 +47,7 @@ function Flexibone_info() {
     {
       title: "Hemi Replacement",
       description: "Partial joint replacement surgery.",
-      icon: <GiBrokenBone className="siconb" />,
+      icon: <GiBrokenBone className="sicon" />,
       isBlue: true,
     },
     {
@@ -63,26 +59,39 @@ function Flexibone_info() {
     {
       title: "Elbow Replacement",
       description: "Artificial implant for elbow joint.",
-      icon: <GiArm className="siconb" />,
+      icon: <GiArm className="sicon" />,
       isBlue: true,
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = 4;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  const itemsPerSlide = isMobile ? 1 : 4;
+  const groupedData = [];
+
+  for (let i = 0; i < servicesData.length; i += itemsPerSlide) {
+    groupedData.push(servicesData.slice(i, i + itemsPerSlide));
+  }
 
   useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const totalSlides = groupedData.length;
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-    }, 3000);
-
+    }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [groupedData]);
 
   return (
     <div>
       <Nav />
-      <section className="Banner" style={{ gap: "20px" }}>
+      <section className="Banner" style={{ gap: "20px", height: "120vh" }}>
         <div className="overlay"></div>
         <h2 className="Flexibone-info-title">
           We'd Love To <span className="highlight">See You Smile</span>
@@ -105,34 +114,46 @@ function Flexibone_info() {
             </p>
           </div>
           <div className="Flexibone-image-section">
-            <img src="/img/Banner_2.png" />
+            <img src="/img/Banner_2.png" alt="Flexibone visual" />
           </div>
         </div>
 
-        <div style={{ zIndex: "100", width: "80vw", overflow: "hidden", marginTop: "30px" }}>
-
-          <div className="slider-track" style={{
+        {/* Auto Scrolling Slider */}
+        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "30px" }}>
+          <div
+            className="slider-track"
+            style={{
+              display: "flex",
               transition: "transform 0.5s ease-in-out",
-              transform: `translateX(-${currentIndex * 80}vw)`,
-            }}>
-            {[...servicesDataGroup1, ...servicesDataGroup2,...servicesDataGroup1, ...servicesDataGroup2].map((service, index) => (
-              <div className="service-box2" style={{ width: "20vw" }} key={index}>
-                <div className={service.isBlue ? "service-icon-blue" : "service-icon"}>
-                  {service.icon}
-                </div>
-                <div className="service-text">
-                  <div className="service-title">{service.title}</div>
-                  <div className="service-description">{service.description}</div>
-                </div>
+              transform: `translateX(-${currentIndex * 90}vw)`,
+              width: `${groupedData.length * 90}vw`,
+            }}
+          >
+            {groupedData.map((group, index) => (
+              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "20px" }}>
+                {group.map((service, i) => (
+                  <div
+                    className="service-box2"
+                    style={{ width: isMobile ? "100%" : "22vw" }}
+                    key={i}
+                  >
+                    <div className={service.isBlue ? "service-icon" : "service-icon"}>
+                      {service.icon}
+                    </div>
+                    <div className="service-text">
+                      <div className="service-title">{service.title}</div>
+                      <div className="service-description">{service.description}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-
         </div>
+      </section>
 
-      </section >
       <Service_info />
-    </div >
+    </div>
   );
 }
 
