@@ -23,7 +23,7 @@ function Flexibone_info() {
     {
       title: "Shoulder Arthroscopy",
       description: "Keyhole surgery for shoulder issues.",
-      icon: <GiShoulderArmor className="sicon" />,
+      icon: <GiShoulderArmor className="siconb"/>,
       isBlue: true,
     },
     {
@@ -35,7 +35,7 @@ function Flexibone_info() {
     {
       title: "Total Knee Replacement",
       description: "Surgical knee joint replacement.",
-      icon: <GiKneeCap className="sicon" />,
+      icon: <GiKneeCap className="siconb" />,
       isBlue: true,
     },
     {
@@ -47,7 +47,7 @@ function Flexibone_info() {
     {
       title: "Hemi Replacement",
       description: "Partial joint replacement surgery.",
-      icon: <GiBrokenBone className="sicon" />,
+      icon: <GiBrokenBone className="siconb" />,
       isBlue: true,
     },
     {
@@ -59,7 +59,7 @@ function Flexibone_info() {
     {
       title: "Elbow Replacement",
       description: "Artificial implant for elbow joint.",
-      icon: <GiArm className="sicon" />,
+      icon: <GiArm className="siconb" />,
       isBlue: true,
     },
   ];
@@ -91,7 +91,7 @@ function Flexibone_info() {
   return (
     <div>
       <Nav />
-      <section className="Banner" style={{ gap: "20px", height: "120vh" }}>
+      <section className="Banner" style={{ gap: "10px"}}>
         <div className="overlay"></div>
         <h2 className="Flexibone-info-title">
           We'd Love To <span className="highlight">See You Smile</span>
@@ -130,19 +130,19 @@ function Flexibone_info() {
             }}
           >
             {groupedData.map((group, index) => (
-              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "20px" }}>
+              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "10px" }}>
                 {group.map((service, i) => (
                   <div
                     className="service-box2"
                     style={{ width: isMobile ? "100%" : "22vw" }}
                     key={i}
                   >
-                    <div className={service.isBlue ? "service-icon" : "service-icon"}>
+                    <div className={service.isBlue ? "service-icon-blue" : "service-icon"}>
                       {service.icon}
                     </div>
                     <div className="service-text">
                       <div className="service-title">{service.title}</div>
-                      <div className="service-description">{service.description}</div>
+                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>{service.description}</div>
                     </div>
                   </div>
                 ))}

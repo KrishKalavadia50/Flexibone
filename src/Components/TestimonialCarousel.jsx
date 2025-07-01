@@ -24,7 +24,7 @@ function TestimonialCarousel() {
     {
       title: "Shoulder Arthroscopy",
       description: "Keyhole surgery for shoulder issues.",
-      icon: <GiShoulderArmor className="sicon" />,
+      icon: <GiShoulderArmor className="siconb" />,
       isBlue: true,
     },
     {
@@ -36,7 +36,7 @@ function TestimonialCarousel() {
     {
       title: "Total Knee Replacement",
       description: "Surgical knee joint replacement.",
-      icon: <GiKneeCap className="sicon" />,
+      icon: <GiKneeCap className="siconb" />,
       isBlue: true,
     },
     {
@@ -48,7 +48,7 @@ function TestimonialCarousel() {
     {
       title: "Hemi Replacement",
       description: "Partial joint replacement surgery.",
-      icon: <GiBrokenBone className="sicon" />,
+      icon: <GiBrokenBone className="siconb" />,
       isBlue: true,
     },
     {
@@ -60,7 +60,7 @@ function TestimonialCarousel() {
     {
       title: "Elbow Replacement",
       description: "Artificial implant for elbow joint.",
-      icon: <GiArm className="sicon" />,
+      icon: <GiArm className="siconb" />,
       isBlue: true,
     },
   ];
@@ -92,7 +92,7 @@ function TestimonialCarousel() {
   return (
     <div>
       <Nav />
-      <section className="Bannertesti" style={{ gap: "20px", height: "120vh" }}>
+      <section className="Bannertesti" style={{ gap: "20px", height:"110vh" }}>
         <div className="overlay"></div>
         <h2 className="TFlexibone-info-title">
           Clients With <span className="highlight">Reason To Smile</span>
@@ -143,19 +143,19 @@ function TestimonialCarousel() {
                 {group.map((service, i) => (
                   <div
                     className="service-box2"
-                    style={{ width: isMobile ? "100%" : "22vw" }}
+                    style={{ width: isMobile ? "100%" : "22vw", marginTop:"80px" }}
                     key={i}
                   >
                     <div
                       className={
-                        service.isBlue ? "service-icon" : "service-icon"
+                        service.isBlue ? "service-icon-blue" : "service-icon"
                       }
                     >
                       {service.icon}
                     </div>
                     <div className="service-text">
                       <div className="service-title">{service.title}</div>
-                      <div className="service-description">
+                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>
                         {service.description}
                       </div>
                     </div>
