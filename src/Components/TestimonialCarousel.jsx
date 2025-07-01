@@ -94,18 +94,18 @@ function Flexibone_info() {
       <Nav />
       <section className="Bannertesti" style={{ gap: "10px"}}>
         <div className="overlay"></div>
-        <h2 className="Flexibone-info-title">
+        <h2 className="TFlexibone-info-title">
           We'd Love To <span className="highlight">See You Smile</span>
         </h2>
-        <div className="line"></div>
+        <div className="Tline"></div>
 
-        <div className="Flexibone-content">
-          <div className="Flexibone-text-section">
+        <div className="TFlexibone-content">
+          <div className="TFlexibone-text-section">
             <p>
             Every Step Forward Begins with Trust. From joint pain to joyful movement our patients share their powerful journeys of healing, hope, and renewed mobility. These stories reflect more than recovery. They reflect the care, expertise, and dedication behind every treatment we provide. Read real experiences from real people who regained their freedom and their smiles through orthopedic excellence.
             </p>
           </div>
-          <div className="Flexibone-image-section">
+          <div className="TFlexibone-image-section">
             <img src="/img/TesttiBanner.jpeg" alt="Flexibone visual" />
           </div>
         </div>
