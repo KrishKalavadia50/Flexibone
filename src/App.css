@@ -1513,10 +1513,6 @@ h1 .highlight {
     flex-direction: column;
     padding: 0px 20px;
   }
-
-  .Banner{
-    height: 110vh;
-  }
 }
 
 /* Articles */
@@ -2620,11 +2616,13 @@ h1 .highlight {
 /* Testimonial */
 
 
+/* Flexibone_info */
+
 .Bannertesti {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("/public/img/testibanner.jpeg") no-repeat center center/cover;
+  background: url("/public/img/bc.png") no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2640,11 +2638,11 @@ h1 .highlight {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(23, 86, 204, 0.824);
+  background: rgba(23, 86, 204, 0.7);
   z-index: 0;
 }
 
-.TFlexibone-info-title {
+.Flexibone-info-title {
   font-size: 54px;
   color: #00af89;
   font-weight: 500;
@@ -2654,27 +2652,27 @@ h1 .highlight {
   z-index: 1;
 }
 
-.TFlexibone-info-title span {
+.Flexibone-info-title span {
   font-size: 64px;
   color: #ffffff;
   font-weight: bold;
   z-index: 1;
 }
 
-.TFlexibone-info-title .highlight {
+.Flexibone-info-title .highlight {
   display: block;
   color: #ffffff;
   z-index: 1;
 }
 
-.Tline {
+.line {
   margin-top: 0.5rem;
   left: 9.8rem;
   width: calc(100% - 19.6rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.624);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.TFlexibone-content {
+.Flexibone-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2683,7 +2681,7 @@ h1 .highlight {
   z-index: 2;
 }
 
-.TFlexibone-text-section {
+.Flexibone-text-section {
   flex: 1;
   font-size: 1.1rem;
   line-height: 1.8;
@@ -2692,14 +2690,14 @@ h1 .highlight {
   opacity: 0.9;
 }
 
-.TFlexibone-image-section {
+.Flexibone-image-section {
   flex: 0.6;
   position: relative;
   top: 7%;
   text-align: right;
 }
 
-.TFlexibone-image-section img {
+.Flexibone-image-section img {
   width: 100%;
   max-width: 400px;
   height: 30vh;
@@ -2707,23 +2705,32 @@ h1 .highlight {
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
-  .TFlexibone-info-title {
+  .Flexibone-info-title {
     font-size: 42px;
     padding: 0 80px;
   }
 
-  .TFlexibone-info-title .highlight {
+  .Flexibone-info-title .highlight {
+    font-size: 50px;
+  }
+
+  .services-info-title {
+    font-size: 42px;
+    padding: 0 80px;
+  }
+
+  .services-info-title .highlight {
     font-size: 50px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .Bannertrsti {
+  .Banner {
     padding: 0 5%;
     height: auto;
   }
 
-  .TFlexibone-info-title {
+  .Flexibone-info-title {
     flex-direction: column;
     align-items: flex-start;
     font-size: 32px;
@@ -2733,18 +2740,18 @@ h1 .highlight {
     position: relative;
   }
 
-  .TFlexibone-info-title .highlight {
+  .Flexibone-info-title .highlight {
     font-size: 36px;
   }
 
-  .Tline {
+  .line {
     top: 90px;
     position: relative;
     left: 0;
-    width: 85%;
+    width: 95%;
   }
 
-  .TFlexibone-content {
+  .Flexibone-content {
     top: 100px;
     position: relative;
     flex-direction: column;
@@ -2753,28 +2760,27 @@ h1 .highlight {
     padding: 0 10px;
   }
 
-  .TFlexibone-text-section {
+  .Flexibone-text-section {
     text-align: justify;
     font-size: 1rem;
-    padding: 0 20px;
+    padding: 0;
   }
 
-  .TFlexibone-image-section img {
+  .Flexibone-image-section img {
     max-width: 100%;
     height: 100%;
     top: -53px;
     position: relative;
-    padding: 0 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .TFlexibone-info-title {
+  .Flexibone-info-title {
     font-size: 24px;
     padding: 0 30px;
   }
 
-  .TFlexibone-info-title .highlight {
+  .Flexibone-info-title .highlight {
     font-size: 28px;
   }
 }

@@ -1,3 +1,4 @@
+
 import {
   GiLeg,
   GiShoulderArmor,
@@ -9,11 +10,10 @@ import {
   GiArm,
 } from "react-icons/gi";
 import Nav from "./Nav";
-import Service_info from "./Services_info";
 import { useEffect, useState } from "react";
 import ClientsT from "./ClientsT";
 
-function TestimonialCarousel() {
+function Flexibone_info() {
   const servicesData = [
     {
       title: "Knee Arthroscopy",
@@ -24,7 +24,7 @@ function TestimonialCarousel() {
     {
       title: "Shoulder Arthroscopy",
       description: "Keyhole surgery for shoulder issues.",
-      icon: <GiShoulderArmor className="siconb" />,
+      icon: <GiShoulderArmor className="siconb"/>,
       isBlue: true,
     },
     {
@@ -92,39 +92,26 @@ function TestimonialCarousel() {
   return (
     <div>
       <Nav />
-      <section className="Bannertesti" style={{ gap: "20px", height:"110v" }}>
+      <section className="Bannertesti" style={{ gap: "10px"}}>
         <div className="overlay"></div>
-        <h2 className="TFlexibone-info-title">
-          Clients With <span className="highlight">Reason To Smile</span>
+        <h2 className="Flexibone-info-title">
+          We'd Love To <span className="highlight">See You Smile</span>
         </h2>
-        <div className="Tline"></div>
+        <div className="line"></div>
 
-        <div className="TFlexibone-content">
-          <div className="TFlexibone-text-section">
+        <div className="Flexibone-content">
+          <div className="Flexibone-text-section">
             <p>
-              Every Step Forward Begins with Trust. From joint pain to joyful
-              movement — our patients share their powerful journeys of healing,
-              hope, and renewed mobility. These stories reflect more than
-              recovery. They reflect the care, expertise, and dedication behind
-              every treatment we provide. Read real experiences from real people
-              who regained their freedom — and their smiles — through orthopedic
-              excellence.
+            Every Step Forward Begins with Trust. From joint pain to joyful movement our patients share their powerful journeys of healing, hope, and renewed mobility. These stories reflect more than recovery. They reflect the care, expertise, and dedication behind every treatment we provide. Read real experiences from real people who regained their freedom and their smiles through orthopedic excellence.
             </p>
           </div>
-          <div className="TFlexibone-image-section">
-            <img src="/img/TesttiBanner.jpeg" alt="TFlexibone visual" />
+          <div className="Flexibone-image-section">
+            <img src="/img/TesttiBanner.jpeg" alt="Flexibone visual" />
           </div>
         </div>
 
         {/* Auto Scrolling Slider */}
-        <div
-          style={{
-            zIndex: 100,
-            width: "90vw",
-            overflow: "hidden",
-            marginTop: "30px",
-          }}
-        >
+        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "95px" }}>
           <div
             className="slider-track"
             style={{
@@ -135,29 +122,19 @@ function TestimonialCarousel() {
             }}
           >
             {groupedData.map((group, index) => (
-              <div
-                key={index}
-                className="slide-wrapper"
-                style={{ display: "flex", gap: "20px" }}
-              >
+              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "10px" }}>
                 {group.map((service, i) => (
                   <div
                     className="service-box2"
-                    style={{ width: isMobile ? "100%" : "22vw", marginTop:"80px" }}
+                    style={{ width: isMobile ? "100%" : "22vw" }}
                     key={i}
                   >
-                    <div
-                      className={
-                        service.isBlue ? "service-icon-blue" : "service-icon"
-                      }
-                    >
+                    <div className={service.isBlue ? "service-icon-blue" : "service-icon"}>
                       {service.icon}
                     </div>
                     <div className="service-text">
                       <div className="service-title">{service.title}</div>
-                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>
-                        {service.description}
-                      </div>
+                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>{service.description}</div>
                     </div>
                   </div>
                 ))}
@@ -167,10 +144,13 @@ function TestimonialCarousel() {
         </div>
       </section>
 
-  <ClientsT />
-
+      <ClientsT />
     </div>
   );
 }
 
-export default TestimonialCarousel;
+export default Flexibone_info;
+
+
+
+

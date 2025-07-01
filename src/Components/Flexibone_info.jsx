@@ -130,7 +130,7 @@ function Flexibone_info() {
             }}
           >
             {groupedData.map((group, index) => (
-              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "10px"}}>
+              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "10px" }}>
                 {group.map((service, i) => (
                   <div
                     className="service-box2"
