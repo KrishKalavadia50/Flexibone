@@ -2069,7 +2069,7 @@ h1 .highlight {
   .Flexibone-image-section img {
     max-width: 100%;
     height: 100%;
-    top: -53px;
+    top: -25px;
     position: relative;
   }
 }
@@ -2711,15 +2711,6 @@ h1 .highlight {
   }
 
   .TFlexibone-info-title .highlight {
-    font-size: 50px;
-  }
-
-  .services-info-title {
-    font-size: 42px;
-    padding: 0 80px;
-  }
-
-  .services-info-title .highlight {
     font-size: 50px;
   }
 }
