@@ -13,7 +13,7 @@ import Service_info from "./Services_info";
 import { useEffect, useState } from "react";
 import ClientsT from "./ClientsT";
 
-function Flexibone_info() {
+function TestimonialCarousel() {
   const servicesData = [
     {
       title: "Knee Arthroscopy",
@@ -24,7 +24,7 @@ function Flexibone_info() {
     {
       title: "Shoulder Arthroscopy",
       description: "Keyhole surgery for shoulder issues.",
-      icon: <GiShoulderArmor className="siconb"/>,
+      icon: <GiShoulderArmor className="siconb" />,
       isBlue: true,
     },
     {
@@ -92,35 +92,39 @@ function Flexibone_info() {
   return (
     <div>
       <Nav />
-      <section className="Bannertesti" style={{ gap: "10px", height:"120vh"}}>
+      <section className="Bannertesti" style={{ gap: "20px", height:"110v" }}>
         <div className="overlay"></div>
         <h2 className="TFlexibone-info-title">
-          We'd Love To <span className="highlight">See You Smile</span>
+          Clients With <span className="highlight">Reason To Smile</span>
         </h2>
         <div className="Tline"></div>
 
         <div className="TFlexibone-content">
           <div className="TFlexibone-text-section">
             <p>
-              Distinctively re-engineer revolutionary meta-services and premium
-              architectures. Intrinsically incubate intuitive opportunities and
-              real-time potentialities.Appropriately communicate one-to-one technology after
-              plug-and-play networks. Quickly aggregate B2B users and worldwide
-              potentialities.Quickly cultivate optimal processes and tactical architectures.
-              Completely iterate covalent strategic theme areas via accurate
-              e-markets. Quickly aggregate B2B users and worldwide
-              potentialities.Quickly cultivate optimal processes and tactical architectures.
-              Completely iterate covalent strategic theme areas via accurate
-              e-markets.
+              Every Step Forward Begins with Trust. From joint pain to joyful
+              movement — our patients share their powerful journeys of healing,
+              hope, and renewed mobility. These stories reflect more than
+              recovery. They reflect the care, expertise, and dedication behind
+              every treatment we provide. Read real experiences from real people
+              who regained their freedom — and their smiles — through orthopedic
+              excellence.
             </p>
           </div>
           <div className="TFlexibone-image-section">
-            <img src="/img/TesttiBanner.jpeg" alt="Flexibone visual" />
+            <img src="/img/TesttiBanner.jpeg" alt="TFlexibone visual" />
           </div>
         </div>
 
         {/* Auto Scrolling Slider */}
-        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "95px" }}>
+        <div
+          style={{
+            zIndex: 100,
+            width: "90vw",
+            overflow: "hidden",
+            marginTop: "30px",
+          }}
+        >
           <div
             className="slider-track"
             style={{
@@ -131,19 +135,29 @@ function Flexibone_info() {
             }}
           >
             {groupedData.map((group, index) => (
-              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "10px"}}>
+              <div
+                key={index}
+                className="slide-wrapper"
+                style={{ display: "flex", gap: "20px" }}
+              >
                 {group.map((service, i) => (
                   <div
                     className="service-box2"
-                    style={{ width: isMobile ? "100%" : "22vw" }}
+                    style={{ width: isMobile ? "100%" : "22vw", marginTop:"80px" }}
                     key={i}
                   >
-                    <div className={service.isBlue ? "service-icon-blue" : "service-icon"}>
+                    <div
+                      className={
+                        service.isBlue ? "service-icon-blue" : "service-icon"
+                      }
+                    >
                       {service.icon}
                     </div>
                     <div className="service-text">
                       <div className="service-title">{service.title}</div>
-                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>{service.description}</div>
+                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>
+                        {service.description}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -153,9 +167,10 @@ function Flexibone_info() {
         </div>
       </section>
 
-      <ClientsT/>
+  <ClientsT />
+
     </div>
   );
 }
 
-export default Flexibone_info;
+export default TestimonialCarousel;

@@ -91,7 +91,7 @@ function Flexibone_info() {
   return (
     <div>
       <Nav />
-      <section className="Banner" style={{ gap: "10px", height:"120vh"}}>
+      <section className="Banner" style={{ gap: "10px"}}>
         <div className="overlay"></div>
         <h2 className="Flexibone-info-title">
           We'd Love To <span className="highlight">See You Smile</span>
@@ -119,7 +119,7 @@ function Flexibone_info() {
         </div>
 
         {/* Auto Scrolling Slider */}
-        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "95px" }}>
+        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "30px" }}>
           <div
             className="slider-track"
             style={{
