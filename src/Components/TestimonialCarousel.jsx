@@ -1,100 +1,176 @@
-import React, { useEffect, useRef, useState } from "react";
-import Footer from "./Footer";
-import Banner from "./Banner";
-import Articles from "./Articles";
-import Contact from "./Contact";
+import {
+  GiLeg,
+  GiShoulderArmor,
+  GiPelvisBone,
+  GiKneeCap,
+  GiBodyBalance,
+  GiBrokenBone,
+  GiFootTrip,
+  GiArm,
+} from "react-icons/gi";
+import Nav from "./Nav";
+import Service_info from "./Services_info";
+import { useEffect, useState } from "react";
+import ClientsT from "./ClientsT";
 
-const testimonials = [
-  {
-    name: "Ravi Sharma",
-    role: "Heart Patient",
-    message:
-      "After my surgery, I received such compassionate care. Dr. Verma and the team saved my life.",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    image: "https://i.pravatar.cc/150?img=12",
-  },
-  {
-    name: "Meera Joshi",
-    role: "Knee Replacement Patient",
-    message:
-      "I can walk pain-free after years of suffering. I'm deeply thankful.",
-    video: "https://www.w3schools.com/html/movie.mp4",
-    image: "https://i.pravatar.cc/150?img=22",
-  },
-  {
-    name: "Ahmed Khan",
-    role: "Cancer Survivor",
-    message:
-      "With the advanced treatment and continuous support, I’m now cancer-free!",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    image: "https://i.pravatar.cc/150?img=32",
-  },
-];
+function TestimonialCarousel() {
+  const servicesData = [
+    {
+      title: "Knee Arthroscopy",
+      description: "Minimally invasive knee joint treatment.",
+      icon: <GiLeg className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Shoulder Arthroscopy",
+      description: "Keyhole surgery for shoulder issues.",
+      icon: <GiShoulderArmor className="sicon" />,
+      isBlue: true,
+    },
+    {
+      title: "Hip Arthroscopy",
+      description: "Minimally invasive hip joint repair.",
+      icon: <GiPelvisBone className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Total Knee Replacement",
+      description: "Surgical knee joint replacement.",
+      icon: <GiKneeCap className="sicon" />,
+      isBlue: true,
+    },
+    {
+      title: "Complex Trauma Surgery",
+      description: "Advanced treatment for severe injuries.",
+      icon: <GiBodyBalance className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Hemi Replacement",
+      description: "Partial joint replacement surgery.",
+      icon: <GiBrokenBone className="sicon" />,
+      isBlue: true,
+    },
+    {
+      title: "Knee Sports Injuries",
+      description: "Treatment for knee-related sports injuries.",
+      icon: <GiFootTrip className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Elbow Replacement",
+      description: "Artificial implant for elbow joint.",
+      icon: <GiArm className="sicon" />,
+      isBlue: true,
+    },
+  ];
 
-const TestimonialCarousel = () => {
-  const containerRef = useRef();
-  const [scrollY, setScrollY] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  const itemsPerSlide = isMobile ? 1 : 4;
+  const groupedData = [];
+
+  for (let i = 0; i < servicesData.length; i += itemsPerSlide) {
+    groupedData.push(servicesData.slice(i, i + itemsPerSlide));
+  }
 
   useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY - containerRef.current.offsetTop;
-      setScrollY(offset);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const totalSlides = groupedData.length;
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [groupedData]);
+
   return (
-    <>
-      <Banner />
-      <div
-        className="overlap-wrapper"
-        ref={containerRef}
-        style={{ height: `${testimonials.length * 100}vh` }}
-      >
-        {testimonials.map((t, idx) => {
-          const start = idx * window.innerHeight;
-          const end = (idx + 1) * window.innerHeight;
-          const visible = scrollY >= start && scrollY < end;
+    <div>
+      <Nav />
+      <section className="Bannertesti" style={{ gap: "20px", height: "120vh" }}>
+        <div className="overlay"></div>
+        <h2 className="TFlexibone-info-title">
+          Clients With <span className="highlight">Reason To Smile</span>
+        </h2>
+        <div className="Tline"></div>
 
-          const opacity = visible ? 1 : 0;
-          const translateY = visible ? 0 : 50;
+        <div className="TFlexibone-content">
+          <div className="TFlexibone-text-section">
+            <p>
+              Every Step Forward Begins with Trust. From joint pain to joyful
+              movement — our patients share their powerful journeys of healing,
+              hope, and renewed mobility. These stories reflect more than
+              recovery. They reflect the care, expertise, and dedication behind
+              every treatment we provide. Read real experiences from real people
+              who regained their freedom — and their smiles — through orthopedic
+              excellence.
+            </p>
+          </div>
+          <div className="TFlexibone-image-section">
+            <img src="/img/TesttiBanner.jpeg" alt="TFlexibone visual" />
+          </div>
+        </div>
 
-          return (
-            <section
-              key={idx}
-              className={`testimonial-slide ${idx % 2 === 0 ? "zig" : "zag"}`}
-              style={{
-                top: `${idx * 100}vh`,
-                opacity,
-                transform: `translateY(${translateY}px)`,
-              }}
-            >
-              <div className="testimonial-media">
-                <video
-                  src={t.video}
-                  controls
-                  className="testimonial-video"
-                  muted
-                  autoPlay
-                  loop
-                />
+        {/* Auto Scrolling Slider */}
+        <div
+          style={{
+            zIndex: 100,
+            width: "90vw",
+            overflow: "hidden",
+            marginTop: "30px",
+          }}
+        >
+          <div
+            className="slider-track"
+            style={{
+              display: "flex",
+              transition: "transform 0.5s ease-in-out",
+              transform: `translateX(-${currentIndex * 90}vw)`,
+              width: `${groupedData.length * 90}vw`,
+            }}
+          >
+            {groupedData.map((group, index) => (
+              <div
+                key={index}
+                className="slide-wrapper"
+                style={{ display: "flex", gap: "20px" }}
+              >
+                {group.map((service, i) => (
+                  <div
+                    className="service-box2"
+                    style={{ width: isMobile ? "100%" : "22vw" }}
+                    key={i}
+                  >
+                    <div
+                      className={
+                        service.isBlue ? "service-icon" : "service-icon"
+                      }
+                    >
+                      {service.icon}
+                    </div>
+                    <div className="service-text">
+                      <div className="service-title">{service.title}</div>
+                      <div className="service-description">
+                        {service.description}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">"{t.message}"</p>
-                <h2 className="testimonial-name">{t.name}</h2>
-                <p className="testimonial-role">{t.role}</p>
-              </div>
-            </section>
-          );
-        })}
-      </div>
-      <Articles />
-      <Contact />
-      <Footer />
-    </>
+            ))}
+          </div>
+        </div>
+      </section>
+
+  <ClientsT />
+
+    </div>
   );
-};
+}
 
 export default TestimonialCarousel;
