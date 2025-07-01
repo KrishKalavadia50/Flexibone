@@ -119,7 +119,7 @@ function Flexibone_info() {
         </div>
 
         {/* Auto Scrolling Slider */}
-        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "30px" }}>
+        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "95px" }}>
           <div
             className="slider-track"
             style={{
