@@ -1,6 +1,7 @@
 import React from "react";
 import Lottie from "react-lottie";
 import Doctoranimation from "../Components/DR.json";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const defaultOptions = {
@@ -32,7 +33,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <button className="contact-btn">Contact Now</button>
+            <Link to="/Contact" className="contact-btn">Contact Now</Link>
           </div>
         </div>
       </div>
