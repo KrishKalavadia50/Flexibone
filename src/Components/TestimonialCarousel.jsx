@@ -12,6 +12,8 @@ import {
 import Nav from "./Nav";
 import { useEffect, useState } from "react";
 import ClientsT from "./ClientsT";
+import DoctorReels from "./DoctorReels";
+import Awards from "./Awards";
 
 function Flexibone_info() {
   const servicesData = [
@@ -145,6 +147,8 @@ function Flexibone_info() {
       </section>
 
       <ClientsT />
+      <DoctorReels />
+      <Awards />
     </div>
   );
 }

@@ -3,22 +3,42 @@ import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 const testimonials = [
   {
     id: 1,
-    videoSrc: "/img/0010_Linux_and_Terminal--[TutFlix.ORG]--.mp4",
-    message: "I feel amazing after my surgery. Thank you, Dr. X!",
+    videoSrc: "/img/p6.mp4",
+    message: "Pain-free and stronger than ever. Huge thanks!",
   },
   {
     id: 2,
-    videoSrc: "/img/0010_Linux_and_Terminal--[TutFlix.ORG]--.mp4",
-    message: "Walking without pain is a dream come true!",
+    videoSrc: "/img/p1.mp4",
+    message: "I feel amazing after my surgery. Thank you, Dr. X!",
   },
   {
     id: 3,
-    videoSrc: "/img/0010_Linux_and_Terminal--[TutFlix.ORG]--.mp4",
-    message: "Back to sports in no time. Unbelievable results!",
+    videoSrc: "/img/p2.mp4",
+    message: "Walking without pain is a dream come true!",
   },
   {
     id: 4,
-    videoSrc: "/img/0010_Linux_and_Terminal--[TutFlix.ORG]--.mp4",
+    videoSrc: "/img/p3.mp4",
+    message: "Back to sports in no time. Unbelievable results!",
+  },
+  {
+    id: 5,
+    videoSrc: "/img/p4.mp4",
+    message: "Pain-free and stronger than ever. Huge thanks!",
+  },
+  {
+    id: 6,
+    videoSrc: "/img/p5.mp4",
+    message: "Pain-free and stronger than ever. Huge thanks!",
+  },
+  {
+    id: 7,
+    videoSrc: "/img/p7.mp4",
+    message: "Pain-free and stronger than ever. Huge thanks!",
+  },
+  {
+    id: 8,
+    videoSrc: "/img/p8.mp4",
     message: "Pain-free and stronger than ever. Huge thanks!",
   },
 ];
@@ -45,7 +65,6 @@ function TestimonialCard({ videoSrc, message }) {
           autoPlay
           loop
           muted
-          controls
           className="video-modern"
         />
         <button className="mute-modern" onClick={toggleMute}>
@@ -79,12 +98,18 @@ function TestimonialCard({ videoSrc, message }) {
 export default function ClientsT() {
   return (
     <div className="testimonial-section">
-      <h2 className="testimonial-title"><span className="green-text">Clients</span>{" "}
-  <span className="blue-text">Feedbackes</span></h2>
+      <h2 className="testimonial-title">
+        <span className="green-text">Clients</span>{" "}
+        <span className="blue-text">Feedbackes</span>
+      </h2>
 
       <div className="testimonial-grid">
         {testimonials.map((t) => (
-          <TestimonialCard key={t.id} videoSrc={t.videoSrc} message={t.message} />
+          <TestimonialCard
+            key={t.id}
+            videoSrc={t.videoSrc}
+            message={t.message}
+          />
         ))}
       </div>
     </div>

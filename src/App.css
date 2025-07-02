@@ -2934,3 +2934,206 @@ h1 .highlight {
     width: 11%;
   }
 }
+
+/* Docter-reels */
+
+/* SECTION CONTAINER */
+.doctor-reels-section {
+  padding: 60px 20px;
+  background-color: #eef8f6;
+}
+
+/* TITLE STYLING */
+.doctor-section-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  line-height: 1.4;
+}
+
+.highlight-green {
+  color: #00af89;
+  font-weight: 700;
+}
+
+.highlight-blue {
+  color: #004aad;
+  font-weight: 700;
+}
+
+/* REEL GRID */
+.doctor-reels-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .doctor-reels-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* INDIVIDUAL CARD */
+.doctor-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-6px);
+}
+
+/* VIDEO WRAPPER WITH 1:1 RATIO */
+.doctor-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* VIDEO INSIDE CARD */
+.doctor-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* MUTE BUTTON */
+.doctor-mute-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* VIDEO TITLE TEXT */
+.doctor-title {
+  font-size: 18px;
+  color: #1b2d1f;
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+/* Awards */
+
+/* Section container */
+.awards-section {
+  padding: 60px 20px;
+  background-color: #f0fbf8;
+  overflow: hidden;
+}
+
+/* Title Styling */
+.awards-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.highlight-green {
+  color: #00af89;
+}
+
+.highlight-blue {
+  color: #004aad;
+}
+
+/* Slider Layout */
+.multi-row-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.slider-row-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Scroll Rows */
+.slider-row {
+  display: flex;
+  gap: 16px;
+  min-width: calc(200px * 60); /* enough width for animation */
+}
+
+/* Individual Image Card */
+.slider-item {
+  width: 200px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scroll Animations */
+.slider-row.forward {
+  animation: scrollRow 90s linear infinite;
+}
+
+.slider-row.reverse {
+  animation: scrollRowReverse 90s linear infinite;
+}
+
+/* Optional staggered delay */
+.delay-0 {
+  animation-delay: 0s;
+}
+.delay-1 {
+  animation-delay: 5s;
+}
+.delay-2 {
+  animation-delay: 2s;
+}
+
+/* Keyframes */
+@keyframes scrollRow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRowReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+
