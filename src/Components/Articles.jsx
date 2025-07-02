@@ -1,5 +1,6 @@
 import React from 'react'
 import{GiMicroscope, GiTeacher, GiFirstAidKit, GiHeartBeats, GiDiscussion, GiHealing} from "react-icons/gi";
+import { Link } from 'react-router-dom';
 
 function Articles() {
   return (
@@ -41,7 +42,7 @@ function Articles() {
                     <p>Patient Stories</p>
                 </div>
             </div>
-            <button class="ct-button">Read Latest Articles Now!</button>
+            <Link to="/Testti" class="ct-button">Read Latest Articles Now!</Link>
         </div>
     </div>
     </div>

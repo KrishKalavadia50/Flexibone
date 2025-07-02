@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 function Banner() {
   const [typingDone, setTypingDone] = useState(false);
@@ -34,12 +35,12 @@ function Banner() {
             techniques and personalized treatment plans.
           </p>
           <div className="buttons">
-            <a href="#" className="btn primary">
+            <Link to="/Flexibone_info" className="btn primary">
               Check Out Our Services
-            </a>
-            <a href="#" className="btn secondary">
+            </Link>
+            <Link to="/Testti" className="btn secondary">
               View Patient Testimonials
-            </a>
+            </Link>
           </div>
         </div>
        </div>

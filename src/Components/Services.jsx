@@ -9,6 +9,7 @@ import {
   GiBrokenBone,
   GiFootTrip,
 } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 function Services() {
   const sliderRef = useRef(null);
@@ -92,9 +93,9 @@ function Services() {
     <div>
       <div className="services-header">
         <span className="service-main-title">Services</span>
-        <a href="#" className="view-more">
+        <Link to="/Flexibone_info" className="view-more">
           View more
-        </a>
+        </Link>
       </div>
 
       <div ref={servicesRef} class="services-container">

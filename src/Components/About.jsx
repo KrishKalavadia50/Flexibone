@@ -6,6 +6,7 @@ import {
   FaUserMd,
 } from "react-icons/fa";
 import { GiKneeCap } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -97,7 +98,7 @@ function About() {
             </div>
 
             <div className="background-image">
-              <button className="cta-button">View More About the Doctor</button>
+              <Link to="/Flexibone_info" className="cta-button" style={{textDecoration:"none", paddingTop:"18px"}}>View More About the Doctor</Link>
             </div>
           </div>
        

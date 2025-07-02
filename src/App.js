@@ -10,7 +10,7 @@ import Articles from "./Components/Articles.jsx";
 import Testimonials from "./Components/Testimonials.jsx";
 import Footer from "./Components/Footer.jsx";
 import TestimonialCarousel from "./Components/TestimonialCarousel.jsx";
-import ClientsT from "./Components/ClientsT.jsx";
+import ContactSection from "./Components/ContactSection.jsx";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path="/Testimonials" element={<Testimonials />} />
         <Route path="/Footer" element={<Footer />} />
         <Route path="/Testti" element={<TestimonialCarousel />} />
-        {/* <Route path="/Clients" element={<ClientsT />} /> */}
+        <Route path="/Contact" element={<ContactSection />} />
       </Routes>
     </BrowserRouter>
   );
