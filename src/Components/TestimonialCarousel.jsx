@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import ClientsT from "./ClientsT";
 import DoctorReels from "./DoctorReels";
 import Awards from "./Awards";
+import Footer from "./Footer";
 
 function Flexibone_info() {
   const servicesData = [
@@ -149,6 +150,7 @@ function Flexibone_info() {
       <ClientsT />
       <DoctorReels />
       <Awards />
+      <Footer />
     </div>
   );
 }
