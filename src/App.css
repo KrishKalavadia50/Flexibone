@@ -2780,7 +2780,6 @@ h1 .highlight {
 
 .testimonial-section {
   padding: 60px 20px;
-  background-color: #f8f8f8;
 }
 
 .green-text {
@@ -2814,7 +2813,6 @@ h1 .highlight {
 /* Section Styles */
 .testimonial-section {
   padding: 50px 20px;
-  background-color: #f0f9ff;
 }
 
 .testimonial-title {
@@ -2940,7 +2938,6 @@ h1 .highlight {
 /* SECTION CONTAINER */
 .doctor-reels-section {
   padding: 60px 20px;
-  background-color: #eef8f6;
 }
 
 /* TITLE STYLING */
@@ -3043,8 +3040,8 @@ h1 .highlight {
 /* Section container */
 .awardss-section {
   padding: 60px 20px;
-  background-color: #f0fbf8;
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 /* Title Styling */
