@@ -40,7 +40,7 @@ const fullShuffledSet = [...shuffledImageSet, ...shuffledImageSet];
 
 export default function Awards() {
   return (
-    <div className="awards-section">
+    <div className="awardss-section">
       <h2 className="awards-title">
         <span className="highlight-green">Doctor’s Awards</span> &{" "}
         <span className="highlight-blue">Seminars Highlights</span>
