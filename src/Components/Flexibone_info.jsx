@@ -152,7 +152,7 @@ function Flexibone_info() {
         </div>
       </section>
 
-      <Service_info />
+      {/* <Service_info /> */}
     </div>
   );
 }

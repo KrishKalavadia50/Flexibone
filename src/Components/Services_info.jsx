@@ -1,101 +1,160 @@
-import React, { useEffect } from "react";
-import { GiSelfLove, GiTooth, GiCommercialAirplane } from "react-icons/gi";
-import Articles from "./Articles";
-import Testimonials from "./Testimonials";
-import Footer from "./Footer";
+import {
+  GiLeg,
+  GiShoulderArmor,
+  GiPelvisBone,
+  GiKneeCap,
+  GiBodyBalance,
+  GiBrokenBone,
+  GiFootTrip,
+  GiArm,
+} from "react-icons/gi";
+import Nav from "./Nav";
+import Service_info from "./Services_info";
+import { useEffect, useState } from "react";
 
-const stats = [
-  { id: "circle1", percentage: 99, icon: <GiSelfLove />, label: "Client Satisfaction" },
-  { id: "circle2", percentage: 97, icon: <GiTooth />, label: "Intervention Success" },
-  { id: "circle3", percentage: 100, icon: <GiTooth />, label: "Happy with Staff" },
-  { id: "circle4", percentage: 95, icon: <GiCommercialAirplane />, label: "Travel Satisfaction" },
-];
+function Flexibone_info() {
+  const servicesData = [
+    {
+      title: "Knee Arthroscopy",
+      description: "Minimally invasive knee joint treatment.",
+      icon: <GiLeg className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Shoulder Arthroscopy",
+      description: "Keyhole surgery for shoulder issues.",
+      icon: <GiShoulderArmor className="siconb"/>,
+      isBlue: true,
+    },
+    {
+      title: "Hip Arthroscopy",
+      description: "Minimally invasive hip joint repair.",
+      icon: <GiPelvisBone className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Total Knee Replacement",
+      description: "Surgical knee joint replacement.",
+      icon: <GiKneeCap className="siconb" />,
+      isBlue: true,
+    },
+    {
+      title: "Complex Trauma Surgery",
+      description: "Advanced treatment for severe injuries.",
+      icon: <GiBodyBalance className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Hemi Replacement",
+      description: "Partial joint replacement surgery.",
+      icon: <GiBrokenBone className="siconb" />,
+      isBlue: true,
+    },
+    {
+      title: "Knee Sports Injuries",
+      description: "Treatment for knee-related sports injuries.",
+      icon: <GiFootTrip className="sicon" />,
+      isBlue: false,
+    },
+    {
+      title: "Elbow Replacement",
+      description: "Artificial implant for elbow joint.",
+      icon: <GiArm className="siconb" />,
+      isBlue: true,
+    },
+  ];
 
-function animateCircle(id, percentage) {
-  const circle = document.getElementById(id);
-  if (!circle) return;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const offset = 550 - (550 * percentage) / 100;
-  let currentOffset = 550;
-  let interval = setInterval(() => {
-    if (currentOffset <= offset) {
-      clearInterval(interval);
-    } else {
-      currentOffset -= 5;
-      circle.style.strokeDashoffset = currentOffset;
-    }
-  }, 20);
-}
+  const itemsPerSlide = isMobile ? 1 : 4;
+  const groupedData = [];
 
-const Services_info = () => {
+  for (let i = 0; i < servicesData.length; i += itemsPerSlide) {
+    groupedData.push(servicesData.slice(i, i + itemsPerSlide));
+  }
+
   useEffect(() => {
-    stats.forEach(({ id, percentage }) => animateCircle(id, percentage));
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const totalSlides = groupedData.length;
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [groupedData]);
+
   return (
-    <div className="services-info-container">
-      <h2 className="services-info-title">
-        Our Services <span className="highlight">In Numbers</span>
-      </h2>
-      <p className="services-paragraph">
-        Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through revolutionary catalysts for change. Seamlessly underwhelm optimal testing processes.
-      </p>
-      <div className="circle-container">
-        {stats.map(({ id, percentage, icon, label }) => (
-          <div className="circle" key={id}>
-            <svg width="220" height="220">
-              <circle cx="110" cy="110" r="90" stroke="#ddd" strokeWidth="6" fill="none" />
-              <circle
-                cx="110"
-                cy="110"
-                r="90"
-                stroke="#00a86b"
-                strokeWidth="6"
-                fill="none"
-                strokeDasharray="550"
-                strokeDashoffset="550"
-                id={id}
-              />
-            </svg>
-            <div className="services-info-icon">{icon}</div>
-            <h2 className="percentage">{percentage}%</h2>
-            <h3 className="servicename">{label}</h3>
+    <div>
+      <Nav />
+      <section className="Banner" style={{ gap: "10px"}}>
+        <div className="overlay"></div>
+        <h2 className="Flexibone-info-title">
+          We'd Love To <span className="highlight">See You Smile</span>
+        </h2>
+        <div className="line"></div>
+
+        <div className="Flexibone-content">
+          <div className="Flexibone-text-section">
+            <p>
+              Distinctively re-engineer revolutionary meta-services and premium
+              architectures. Intrinsically incubate intuitive opportunities and
+              real-time potentialities.Appropriately communicate one-to-one technology after
+              plug-and-play networks. Quickly aggregate B2B users and worldwide
+              potentialities.Quickly cultivate optimal processes and tactical architectures.
+              Completely iterate covalent strategic theme areas via accurate
+              e-markets. Quickly aggregate B2B users and worldwide
+              potentialities.Quickly cultivate optimal processes and tactical architectures.
+              Completely iterate covalent strategic theme areas via accurate
+              e-markets.
+            </p>
           </div>
-        ))}
-        <div className="line-two"></div>
-      </div>
-      <div class="service-info-container">
-        <div class="service-info-content-left">
-            <div class="separator"></div>
-            <p>“DentiCare was founded in the first place to create absolutely beautiful smiles.”</p>
-            <div class="separator"></div>
+          <div className="Flexibone-image-section">
+            <img src="/img/Banner_2.png" alt="Flexibone visual" />
+          </div>
         </div>
-        <div class="service-info-content-right">
-            <p>Distinctively re-engineer revolutionary meta-services and premium architectures. Intrinsically incubate intuitive opportunities and real-time potentialities.</p>
-            <p>Appropriately communicate one-to-one technology after plug-and-play networks. Quickly aggregate B2B users and worldwide potentialities.</p>
-            <p>Enthusiastically mesh long-term high-impact infrastructures vis-a-vis efficient customer service. Professionally fashion wireless leadership.</p>
-            <p>Energetically myocordinate clicks-and-mortar testing procedures whereas next-generation manufactured products, appropriately implement visionary readiness.</p>
+
+        {/* Auto Scrolling Slider */}
+        <div style={{ zIndex: 100, width: "90vw", overflow: "hidden", marginTop: "95px" }}>
+          <div
+            className="slider-track"
+            style={{
+              display: "flex",
+              transition: "transform 0.5s ease-in-out",
+              transform: `translateX(-${currentIndex * 90}vw)`,
+              width: `${groupedData.length * 90}vw`,
+            }}
+          >
+            {groupedData.map((group, index) => (
+              <div key={index} className="slide-wrapper" style={{ display: "flex", gap: "10px" }}>
+                {group.map((service, i) => (
+                  <div
+                    className="service-box2"
+                    style={{ width: isMobile ? "100%" : "22vw" }}
+                    key={i}
+                  >
+                    <div className={service.isBlue ? "service-icon-blue" : "service-icon"}>
+                      {service.icon}
+                    </div>
+                    <div className="service-text">
+                      <div className="service-title">{service.title}</div>
+                      <div className="service-descriptionn" style={{color:"rgb(255 255 255 / 64%)", fontSize:"14px"}}>{service.description}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-    </div>
-    <div style={{position: "relative", top: "10rem"}}>
-    <Articles />
-    </div>
-    <div style={{position: "relative", top: "25rem"}}>
-      <Testimonials />
-    </div>
-    <div class="callnow-banner">
-        <div class="banner-overlay"></div>
-        <div class="callnow-content">
-            <div class="callnow-text">Call Now</div>
-            <div class="phone-number">+91 2345 3456</div>
-        </div>
-        <a href="#" class="callnow-button">Contact Us For Enquiry</a>
-    </div>
-    <div style={{position: "relative", top: "30rem"}}>
-      <Footer />
-    </div>
+      </section>
+
+      <Service_info />
     </div>
   );
-};
+}
 
-export default Services_info;
+export default Flexibone_info;

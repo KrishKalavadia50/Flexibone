@@ -57,7 +57,7 @@ export default function Nav() {
           <ul>
             <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
             <li><Link to="/Flexibone_info" onClick={() => setMenuOpen(false)}>About</Link></li>
-            <li><Link to="/Flexibone_info" onClick={() => setMenuOpen(false)}>Services</Link></li>
+            <li><Link to="/Service_info" onClick={() => setMenuOpen(false)}>Services</Link></li>
             <li><Link to="/Testti" onClick={() => setMenuOpen(false)}>Awards / Seminars</Link></li>
             <li><Link to="/Contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
           </ul>

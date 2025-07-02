@@ -7,6 +7,7 @@ import Articles from './Components/Articles'
 import Contact from './Components/Contact'
 import Feedbackpopup from './Components/Feedbackpopup'
 import Footer from './Components/Footer'
+import Services_info from './Components/Services_info'
 
 function Main() {
   return (
